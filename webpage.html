@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.menu {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+.menuitem {
+  padding: 12px;
+  margin-top: 7px;
+  border-bottom: 1px solid #ddd;
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+.menuitem:hover {
+  background-color: #d4edda;
+  transform: scale(1.05);
+}
+.main-container {
+  display: flex;
+  flex: 1;
+}
+.main {
+  flex: 2;
+  padding: 0 20px;
+}
+.right {
+  background-color: #cce5ff;
+  padding: 10px 15px;
+  margin-top: 7px;
+  flex: 1;
+}
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+/* Slideshow styles */
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.slide {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .main-container {
+    flex-direction: column;
+  }
+  header, footer {
+    display: flex;
+    justify-content: space-around;
+  }
+  .main, .right {
+    width: 100%;
+  }
+}
+@media (min-width: 1025px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div style="background-color:#f1f1f1;padding:15px;text-align:center;">
+  <h1>Maasai Mara National Reserve</h1>
+  <h3>Explore the Heart of Kenya's Wildlife</h3>
+</div>
+
+<div class="main-container">
+  <div class="menu">
+    <div class="menuitem">About Maasai Mara</div>
+    <div class="menuitem">Wildlife & Safaris</div>
+    <div class="menuitem">Cultural Experience</div>
+    <div class="menuitem">Photo Gallery</div>
+  </div>
+
+  <div class="main">
+    <h2>About Maasai Mara</h2>
+    <p>The Maasai Mara is a renowned safari destination in Kenya, famous for its stunning landscapes, rich wildlife, and the Great Migration. It offers an unforgettable experience of nature's beauty and cultural heritage.</p>
+    <img src="maasai_mara.png" alt="Beautiful view of Maasai Mara National Reserve">
+  </div>
+
+  <div class="right">
+    <h2>What to See?</h2>
+    <p>Witness the Big Five (lion, leopard, rhino, elephant, and buffalo) along with wildebeest migrations and breathtaking sunsets.</p>
+    <h2>Where?</h2>
+    <p>Located in the southwest of Kenya, bordering Tanzania's Serengeti National Park.</p>
+    <h2>Best Time to Visit?</h2>
+    <p>July to October during the Great Migration, or year-round for spectacular wildlife viewing.</p>
+  </div>
+</div>
+
+
+<div class="slideshow-container">
+  <img class="slide" src="images/image1.jpg" alt="Wildlife Safari">
+  <img class="slide" src="images/image2.jpg" alt="Beautiful Landscape">
+  <img class="slide" src="images/image3.png" alt="Maasai Cultural Dance">
+</div>
+
+<div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:14px;">
+  Discover the wild beauty of Kenya with Maasai Mara. A perfect blend of adventure, nature, and culture awaits you!
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+</script>
+
+</body>
+</html>
